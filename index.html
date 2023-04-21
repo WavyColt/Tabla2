@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Tabla de Registros</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: Mar 09 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="" alt="">
+        <span class="d-none d-lg-block"></span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Data Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Datatables</h5>
+
+              <!-- Table with stripped rows -->
+              <div class="table-responsive">
+                <table class="table" id="registros">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellido Paterno</th>
+                      <th>Apellido Materno</th>
+                      <th>Clave de Elector</th>
+                      <th>Sección</th>
+                      <th>Calle</th>
+                      <th>Número</th>
+                      <th>Colonia</th>
+                      <th>Código Postal</th>
+                      <th>Teléfono</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>John</td>
+                      <td>Doe</td>
+                      <td>Smith</td>
+                      <td>1234567890123456</td>
+                      <td>1</td>
+                      <td>Main St</td>
+                      <td>123</td>
+                      <td>Downtown</td>
+                      <td>12345</td>
+                      <td>555-1234</td>
+                    </tr>
+                    <tr>
+                      <td>Jane</td>
+                      <td>Doe</td>
+                      <td>Smith</td>
+                      <td>2345678901234567</td>
+                      <td>2</td>
+                      <td>First St</td>
+                      <td>456</td>
+                      <td>Uptown</td>
+                      <td>23456</td>
+                      <td>555-5678</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <div class="modal fade" id="popup" tabindex="-1" aria-labelledby="popup-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="popup-label">Datos del Registro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img id="popup-identificacion" src="" alt="Identificación Oficial">
+                    </div>
+                    <div class="col-md-8">
+                        <p><strong>Nombre:</strong> <span id="popup-nombre"></span></p>
+                        <p><strong>Apellido Paterno:</strong> <span id="popup-apellidoPaterno"></span></p>
+                        <p><strong>Apellido Materno:</strong> <span id="popup-apellidoMaterno"></span></p>
+                        <p><strong>Clave de Elector:</strong> <span id="popup-claveElector"></span></p>
+                        <p><strong>Sección:</strong> <span id="popup-seccion"></span></p>
+                        <p><strong>Calle:</strong> <span id="popup-calle"></span></p>
+                        <p><strong>Número:</strong> <span id="popup-numero"></span></p>
+                        <p><strong>Colonia:</strong> <span id="popup-colonia"></span></p>
+                        <p><strong>Código Postal:</strong> <span id="popup-codigoPostal"></span></p>
+                        <p><strong>Teléfono:</strong> <span id="popup-telefono"></span></p>
+                    </div>
+                  </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.min.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- Importar jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- JavaScript para la navegación por teclado -->
+  <script>
+    $(document).on('keydown', function(e) {
+        var keyCode = e.keyCode || e.which;
+        var $selectedRow = $('#registros tbody tr.selected');
+
+        // Manejar la tecla hacia abajo
+        if (keyCode === 40) {
+            e.preventDefault();
+            if ($selectedRow.length === 0) {
+                $('#registros tbody tr:first-child').addClass('selected');
+            } else {
+                $selectedRow.removeClass('selected');
+                var $nextRow = $selectedRow.next();
+                if ($nextRow.length > 0) {
+                    $nextRow.addClass('selected');
+                } else {
+                    $('#registros tbody tr:first-child').addClass('selected');
+                }
+            }
+        }
+        // Manejar la tecla hacia arriba
+        else if (keyCode === 38) {
+            e.preventDefault();
+            if ($selectedRow.length === 0) {
+                $('#registros tbody tr:last-child').addClass('selected');
+            } else {
+                $selectedRow.removeClass('selected');
+                var $prevRow = $selectedRow.prev();
+                if ($prevRow.length > 0) {
+                    $prevRow.addClass('selected');
+                } else {
+                    $('#registros tbody tr:last-child').addClass('selected');
+                }
+            }
+        }
+        // Manejar la tecla Enter
+        else if (keyCode === 13) {
+            e.preventDefault();
+            if ($selectedRow.length > 0)
+            {
+                var nombre = $selectedRow.find('td:nth-child(1)').text();
+                var apellidoPaterno = $selectedRow.find('td:nth-child(2)').text();
+                var apellidoMaterno = $selectedRow.find('td:nth-child(3)').text();
+                var claveElector = $selectedRow.find('td:nth-child(4)').text();
+                var seccion = $selectedRow.find('td:nth-child(5)').text();
+                var calle = $selectedRow.find('td:nth-child(6)').text();
+                var numero = $selectedRow.find('td:nth-child(7)').text();
+                var colonia = $selectedRow.find('td:nth-child(8)').text();
+                var codigoPostal = $selectedRow.find('td:nth-child(9)').text();
+                var telefono = $selectedRow.find('td:nth-child(10)').text();
+
+                // Mostrar el popup con los datos del registro seleccionado
+                $('#popup-nombre').text(nombre);
+                $('#popup-apellidoPaterno').text(apellidoPaterno);
+                $('#popup-apellidoMaterno').text(apellidoMaterno);
+                $('#popup-claveElector').text(claveElector);
+                $('#popup-seccion').text(seccion);
+                $('#popup-calle').text(calle);
+                $('#popup-numero').text(numero);
+                $('#popup-colonia').text(colonia);
+                $('#popup-codigoPostal').text(codigoPostal);
+                $('#popup-telefono').text(telefono);
+                $('#popup-identificacion').attr('src', 'identificacion.jpg');
+                $('#popup').modal('show');
+            }
+        }
+    });
+</script>
+
+</body>
+
+</html>
